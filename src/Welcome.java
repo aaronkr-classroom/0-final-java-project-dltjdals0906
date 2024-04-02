@@ -2,6 +2,8 @@ import java.util.Scanner;
 public class Welcome {
 	static final int NUM_BOOK = 3;
 	static final int NUM_ITEM = 7;
+	static CartItem[]mCartItem = new CartItem[NUM_BOOK];
+	static int mCartCount = 0;
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -153,11 +155,24 @@ public class Welcome {
 				
 				if (str.toUpperCase().equals("Y")) {
 					System.out.println(book[numId][0] + "도서가 장바구니에 추가되었습니다.");
+					// 장바구니에 넣기
+					if (!isCartInBook(book[numId][0]))
+						mCartItem[mCartCount++] = new CartItem(book[numId]);
 				}
 				quit = true;
 			} else
 				System.out.println("다시 입력해 주세요");
 		}
+	}
+	public static boolean isCartInBook(String bookId) {
+		boolean flag = false;
+		for (int i = 0; i < mCartCount; i++ ) {
+			if (bookId == mCartItem[i].getBookID()) {
+				mCartItem[i].setQuantity(mCartItem[i].getQuantity()+1);
+				flag = true;
+			}
+		}
+		return flag;
 	}
 	/**
 	 * 설명 : 
@@ -218,7 +233,12 @@ public class Welcome {
 		book[2][5] = "컵퓨터 입문";
 		book[2][6] = "2019/06/10";
 	}
-	
+	public static void menuGusetInfo(String name, int mobile) {
+		System.out.println("현재 고객 정보 : ");
+		// System.out.println("이름" + name + "  연락처" + mobile);
+		Person person = new Person(name, mobile);
+		System.out.println("이름" + person.getName() + "  연락처" + person.getPhone());
+	}
 	
 	
 	
