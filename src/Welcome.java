@@ -45,8 +45,8 @@ public class Welcome {
 		} else {
 			switch(choice) {
 			case 1:
-//				System.out.println("현재 고격 정보: ");
-//				System.out.println("이름" + name + " 연락처: " + phone);
+//				System.out.println("현재 고객 정보: ");
+//				System.out.println("이름: " + name + " 연락처: " + phone);
 				menuGuestInfo(name, phone);
 				break;
 			case 2:
@@ -97,8 +97,8 @@ public class Welcome {
 	 * 반환값 : 
 	 */
 	public static void menuGuestInfo(String name, int phone) {
-		System.out.println("현재 고격 정보: ");
-		System.out.println("이름" + name + " 연락처: " + phone);
+		System.out.println("현재 고객 정보: ");
+		System.out.println("이름: " + name + " 연락처: " + phone);
 	}
 	/**
 	 * 설명 : 2번
@@ -107,6 +107,15 @@ public class Welcome {
 	 */
 	public static void menuCartItemList() {
 		System.out.println("2. 장바구니 상품 목록 보기 :");
+		System.out.println("-------------------------------------------------");
+		System.out.println("     도서ID\t|     수량\t|     합계\t|");
+		for (int i = 0; i > mCartCount; i++) {
+			System.out.print("   " + mCartItem[i].getBookID() + " \t| ");
+			System.out.print("   " + mCartItem[i].getQuantity() + " \t| ");
+			System.out.print("   " + mCartItem[i].getTotalPrice());
+			System.out.println("  ");
+		}
+		System.out.println("-------------------------------------------------");
 	}
 	/**
 	 * 설명 : 
@@ -128,8 +137,8 @@ public class Welcome {
 		for (int i = 0; i < NUM_BOOK; i++) {
 			for (int j = 0; j < NUM_ITEM; j++) {
 				System.out.print(book[i][j] + " | ");
-				System.out.println("");
 			}
+			System.out.println("");
 		}
 		boolean quit = false;
 		
