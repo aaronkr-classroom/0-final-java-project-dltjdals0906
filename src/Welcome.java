@@ -109,10 +109,10 @@ public class Welcome {
 		System.out.println("2. 장바구니 상품 목록 보기 :");
 		System.out.println("-------------------------------------------------");
 		System.out.println("     도서ID\t|     수량\t|     합계\t|");
-		for (int i = 0; i > mCartCount; i++) {
-			System.out.print("   " + mCartItem[i].getBookID() + " \t| ");
-			System.out.print("   " + mCartItem[i].getQuantity() + " \t| ");
-			System.out.print("   " + mCartItem[i].getTotalPrice());
+		for (int i = 0; i < mCartCount; i++) {
+			System.out.print("     " + mCartItem[i].getBookID() + " \t| ");
+			System.out.print("     " + mCartItem[i].getQuantity() + " \t| ");
+			System.out.print("     " + mCartItem[i].getTotalPrice()+ " \t| ");
 			System.out.println("  ");
 		}
 		System.out.println("-------------------------------------------------");

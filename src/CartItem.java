@@ -16,6 +16,9 @@ public class CartItem {
 	public String[] getItemBook() {
 		return itemBook;	
 	}
+	public void setItemBook(String[] itembook) {
+		this.itemBook = itemBook;
+	}
 	public String getBookID() {
 		return bookID;
 	}
